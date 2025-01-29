@@ -1,37 +1,107 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
-import { Menu, X } from "lucide-react"; // Importa los íconos correctamente
- // Asegúrate de que la ruta sea correcta
-
+import { useState, useEffect } from "react";
+import { CiMenuBurger } from "react-icons/ci";
+import { RiCloseLine } from "react-icons/ri";
 
 export default function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-    return (
-        <>
-            {/* Navbar Principal */}
-            <nav className="navbar">
-                <div className="navbar-container">
-                    <h2 className="navbar-title">Sistema Médico</h2>
-                    <button className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
-                        {isOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
-                </div>
+  // Evita problemas de hidratación asegurando que el componente se renderice en el cliente
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-                {/* Sidebar - Se adapta a la vista de escritorio y móvil */}
-                <div className={`sidebar ${isOpen ? "open" : ""}`}>
-                    <ul className="nav-links">
-                        <li><Link href="/Inicio">Inicio</Link></li>
-                        <li><Link href="/alertas">Alertas</Link></li>
-                        <li><Link href="/paciente">Pacientes</Link></li>
-                        <li><Link href="/historial">historial</Link></li>
-                    </ul>
-                </div>
-            </nav>
+  if (!mounted) return null; // Evita errores de hidratación
 
-            {/* Espacio de contenido para evitar que se superponga con el navbar */}
-            <div className="content-padding"></div>
-        </>
-    );
+  return (
+    <>
+      {/* Sidebar Vertical */}
+      <nav className="bg-blue-600 text-white w-64 h-screen fixed left-0 top-0 p-6 hidden md:flex flex-col">
+        <h2 className="text-2xl font-bold mb-6 text-white">Sistema Médico</h2>
+        <ul className="space-y-4">
+          <li>
+            <Link href="/Inicio" className="hover:text-gray-300">
+              Inicio
+            </Link>
+          </li>
+          <li>
+            <Link href="/alertas" className="hover:text-gray-300">
+              Alertas
+            </Link>
+          </li>
+          <li>
+            <Link href="/paciente" className="hover:text-gray-300">
+              Pacientes
+            </Link>
+          </li>
+          <li>
+            <Link href="/historial" className="hover:text-gray-300">
+              Historial
+            </Link>
+          </li>
+        </ul>
+      </nav>
+
+      {/* Botón de menú para móviles */}
+      <button
+        className="md:hidden fixed top-4 left-4 text-3xl text-blue-600 z-50"
+        onClick={() => setIsOpen(true)}
+      >
+        <CiMenuBurger />
+      </button>
+
+      {/* Sidebar Móvil */}
+      {isOpen && (
+        <div className="fixed top-0 left-0 w-64 h-screen bg-blue-600 text-white p-6 flex flex-col transform transition-transform md:hidden z-50">
+          <button
+            className="absolute top-4 right-4 text-3xl"
+            onClick={() => setIsOpen(false)}
+          >
+            <RiCloseLine />
+          </button>
+          <h2 className="text-2xl font-bold mb-6">Sistema Médico</h2>
+          <ul className="space-y-4">
+            <li>
+              <Link
+                href="/Inicio"
+                onClick={() => setIsOpen(false)}
+                className="hover:text-gray-300"
+              >
+                Inicio
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/alertas"
+                onClick={() => setIsOpen(false)}
+                className="hover:text-gray-300"
+              >
+                Alertas
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/paciente"
+                onClick={() => setIsOpen(false)}
+                className="hover:text-gray-300"
+              >
+                Pacientes
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/historial"
+                onClick={() => setIsOpen(false)}
+                className="hover:text-gray-300"
+              >
+                Historial
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
+    </>
+  );
 }

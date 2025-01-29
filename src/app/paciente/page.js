@@ -71,7 +71,7 @@ export default function Pacientes() {
     return (
         <div className="container">
             {/* Sidebar */}
-            <Navbar/>
+            {/* <Navbar/> */}
 
             {/* Secciones */}
             <div className="content">

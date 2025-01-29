@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Chart from "chart.js/auto";
 import "./style.css";
+import Navbar from "@/components/navbar";
 
 
 
@@ -91,7 +92,7 @@ export default function Inicio() {
         <div className="container">
             {/* Navbar agregado */}
             
-            
+            {/* <Navbar/> */}
 
             {/* Contenido de Inicio */}
             <div className="content">

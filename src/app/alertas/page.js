@@ -77,7 +77,7 @@ export default function AlertsSystem() {
     return (
         <>
             {/* Navbar agregado */}
-            <Navbar />
+            {/* <Navbar /> */}
 
             {/* Contenido de Alertas */}
             <main id="alerts" className="section">

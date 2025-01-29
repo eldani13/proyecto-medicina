@@ -1,8 +1,7 @@
-/* Base reset and variables */
 :root {
     --primary-color: #2b22e3;
     --primary-hover: #1f0bf7;
-    --secondary-color: #1e293b;
+    --secondary-color: #3b82f6;
     --background-color: #f8fafc;
     --card-color: #ffffff;
     --text-color: #1f2937;
@@ -29,7 +28,6 @@ body {
     line-height: 1.5;
 }
 
-/* Layout */
 .container {
     padding: 2rem;
     margin-left: 280px;
@@ -50,7 +48,6 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Navigation */
 .sidebar ul {
     list-style: none;
     margin-top: 2rem;
@@ -76,7 +73,6 @@ body {
     color: white;
 }
 
-/* Cards and Grids */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -98,7 +94,6 @@ body {
     box-shadow: var(--shadow-md);
 }
 
-/* Tables */
 .table-container {
     overflow-x: auto;
     border-radius: 1rem;
@@ -136,7 +131,6 @@ tr:hover td {
     background: var(--background-color);
 }
 
-/* Buttons */
 .btn {
     padding: 0.625rem 1.25rem;
     border: none;
@@ -170,7 +164,6 @@ tr:hover td {
     transform: translateY(-1px);
 }
 
-/* Modal */
 .overlay {
     display: none;
     position: fixed;
@@ -205,7 +198,6 @@ tr:hover td {
     transform: scale(1);
 }
 
-/* Forms */
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -238,7 +230,6 @@ tr:hover td {
     box-shadow: 0 0 0 3px rgba(16, 4, 234, 0.1);
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .container {
         margin-left: 0;

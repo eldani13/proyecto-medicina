@@ -15,7 +15,7 @@ export default function Login() {
         // Simulación de autenticación
         if (username === "admin" && password === "12345") {
             alert("Acceso concedido");
-            router.push("/dashboard"); // Redirige al dashboard
+            router.push("/Inicio"); // Redirige al dashboard
         } else {
             setErrorMessage("Usuario o contraseña incorrectos");
         }
@@ -33,7 +33,8 @@ export default function Login() {
                         placeholder="Ingrese su usuario" 
                         value={username} 
                         onChange={(e) => setUsername(e.target.value)} 
-                        required 
+                        required
+                        className="text-black"
                     />
                 </div>
                 <div className="form-group">
@@ -45,6 +46,8 @@ export default function Login() {
                         value={password} 
                         onChange={(e) => setPassword(e.target.value)} 
                         required 
+                        className="text-black"
+
                     />
                 </div>
                 <button type="submit" className="btn">Iniciar Sesión</button>

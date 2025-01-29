@@ -22,7 +22,7 @@ export default function Historial() {
     return (
         <div className="container">
             {/* Navbar */}
-            <Navbar />
+            {/* <Navbar /> */}
 
             {/* Contenido de Historial */}
             <div className="content">
